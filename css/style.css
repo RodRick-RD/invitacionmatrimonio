@@ -1,0 +1,442 @@
+
+*{margin:0;padding:0;box-sizing:border-box;}
+:root {
+    --fondo-pagina: #fdfcf9; /* Crema muy suave */
+    --color-sobre: #ffffff;
+    --color-solapa: #f4f1ea;
+    --color-dorado: #c5a059; /* Un dorado más sutil */
+    --color-texto-oscuro: #5a5a5a;
+    --fuente-elegante: 'Dancing Script', cursive;
+    --fuente-texto: 'Lora', serif;
+    --primary: #143557; 
+    --secondary: #2b496671; 
+}
+body{
+  /*background: linear-gradient(135deg,#fdf6f0,#f8e8e8);*/
+  background-color: var(--secondary);
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  height:100dvh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform .6s ease;
+
+  background-image: url('../img/decor1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+  transform-origin: top;
+  transition: transform .6s ease;
+  border-radius: 10px;
+  z-index: 2; /* La solapa queda por encima */
+}
+
+.card{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#ffffff;
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  transform: scale(0);
+  opacity:0;
+  transition: all .6s ease;
+  overflow: auto;
+
+  margin: 0;
+  padding: 0;
+
+  background-image: url('../img/decor3.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
+}
+.card.active{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height:100dvh;
+  transform: scale(1);
+  opacity:1;
+  overflow: auto;
+  z-index: 1000;
+}
+
+.card h1{
+  margin: 0;
+  padding: 0;
+  font-size:2.2rem;
+  font-family: var(--fuente-elegante);
+  font-size: 2.8rem;
+  color: var(--color-dorado);
+  line-height: 1;
+}
+
+.card h2{
+  margin-top:10px;
+  font-family: var(--fuente-elegante);
+  color: var(--color-dorado);
+  font-size: 2.5rem;
+}
+.card h3{
+  margin-top:10px;
+  font-family: var(--fuente-elegante);
+  color: var(--primary);
+  font-size: 3rem;
+}
+
+.card p{
+  margin-top:20px;
+  font-size:1.2rem;
+}
+
+.close-btn{
+  position:fixed; /* 👈 clave */
+  top: 10px;
+  right: 15px;
+  border:none;
+  font-size: 2.5rem;
+  background-color: transparent;
+  color: #787878;
+  cursor:pointer;
+  z-index: 9999; /* por encima de todo */
+}
+
+/* Calendario Mensual */
+/* --- CONTENEDOR PRINCIPAL --- */
+.calendar-month-container {
+  width: 90%;
+  max-width: 500px; /* Más grande en Web */
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.calendar-month-header h3 {
+  font-family: var(--fuente-elegante);
+  color: var(--primary);
+  font-size: 2.5rem; /* Tamaño elegante */
+  margin-bottom: 20px;
+}
+
+/* --- GRID DEL CALENDARIO --- */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.day-name {
+  font-weight: bold;
+  color: var(--color-dorado);
+  font-size: 1.1rem;
+  padding-bottom: 10px;
+}
+
+.calendar-grid div:not(.day-name) {
+  padding: 15px 0;
+  font-size: 1.2rem;
+  color: var(--color-texto-oscuro);
+  transition: all 0.3s ease;
+}
+
+/* --- DÍA ESPECIAL (Círculo más grande) --- */
+.special-day {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border-radius: 50%;
+  font-weight: bold;
+  box-shadow: 0 0 0 4px white, 0 0 0 7px var(--color-dorado);
+  transform: scale(1.1);
+}
+
+/* --- CONTADOR DINÁMICO --- */
+.countdown-container {
+  width: 95%;
+  max-width: 700px;
+  margin: 40px auto;
+}
+
+#timer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Permite que bajen en móviles si no caben */
+}
+
+.time-block {
+  background: var(--primary);
+  color: white;
+  min-width: 100px; /* Más ancho en Web */
+  padding: 20px 10px;
+  border-radius: 12px;
+  border-bottom: 4px solid var(--color-dorado);
+}
+
+.time-block span {
+  font-size: 2.5rem; /* Números grandes */
+  display: block;
+  font-weight: bold;
+}
+
+.time-block small {
+  color: var(--color-dorado);
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+
+/* --- RESPONSIVIDAD (Móviles) --- */
+@media (max-width: 600px) {
+  .calendar-month-container {
+    padding: 1rem;
+  }
+  
+  .calendar-month-header h3 {
+    font-size: 1.8rem;
+  }
+
+  .calendar-grid div:not(.day-name) {
+    padding: 10px 0;
+    font-size: 0.9rem;
+  }
+
+  .time-block {
+    min-width: 70px;
+    padding: 10px 5px;
+  }
+
+  .time-block span {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+/* --- SECCIÓN DE UBICACIONES --- */
+.locations-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Espacio entre tarjetas en Web */
+  flex-wrap: wrap; /* Permite que bajen en móviles */
+  margin: 40px auto;
+  padding: 0 20px;
+  max-width: 900px;
+}
+
+/* --- TARJETA INDIVIDUAL --- */
+.location-card {
+  flex: 1; /* Distribuye el espacio equitativamente */
+  min-width: 280px; /* Ancho mínimo para que no se deformen */
+  max-width: 400px;
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: 5px solid var(--primary); /* Detalle azul arriba */
+}
+
+/* --- ICONOS --- */
+.location-icon {
+  margin-bottom: 20px;
+}
+
+/* --- INFORMACIÓN DE TEXTO --- */
+.location-title {
+  font-family: var(--fuente-elegante);
+  color: var(--color-dorado);
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  margin: 0;
+}
+
+.location-name {
+  font-family: var(--fuente-texto);
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.location-address {
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  color: var(--color-texto-oscuro);
+  margin-top: 5px;
+}
+
+.location-time {
+  font-weight: bold;
+  color: var(--color-texto-oscuro);
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+/* --- BOTÓN DE MAPS --- */
+.maps-btn {
+  margin-top: auto; /* Empuja el botón hacia abajo si el texto varía */
+  display: inline-block;
+  background: transparent;
+  color: var(--color-dorado);
+  border: 2px solid var(--color-dorado);
+  padding: 10px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.maps-btn:hover {
+  background: var(--color-dorado);
+  color: white;
+  box-shadow: 0 4px 10px rgba(197, 160, 89, 0.4);
+}
+
+@media (max-width: 700px) {
+  .locations-section {
+    flex-direction: column; 
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .location-card {
+    width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .location-title {
+    font-size: 1.8rem;
+  }
+}
+
+.foto-novios {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  margin: 30px auto;
+  display: block;
+  
+
+  animation: pulsoDorado 2s infinite ease-in-out; 
+}
+
+
+@keyframes pulsoDorado {
+  0% {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15), 0 0 0 2px white, 0 0 0 5px rgba(197, 160, 89, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2), 0 0 0 2px white, 0 0 0 10px rgba(197, 160, 89, 0.8);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15), 0 0 0 2px white, 0 0 0 5px rgba(197, 160, 89, 0.5);
+    transform: scale(1);
+  }
+}
+
+/* Estado inicial: Oculto y abajo */
+.efecto-scroll {
+  opacity: 0;
+  transform: translateY(60px); 
+  transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity; 
+}
+
+.efecto-scroll.aparecer {
+  opacity: 1;
+  transform: translateY(0);
+}
+#novios{
+    color: var(--primary);
+    font-size: 7rem;
+}
+
+.box{
+    background-image: url('../img/decor3.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.box2{
+    background-image: url('../img/decor3.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.box3{
+    background-color: var(--secondary);
+}
+.inv1{
+
+}
+.h-100{
+    min-height: 100dvh;
+}
+
+.pasaje-biblico{
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    & p{
+        font-family: var(--fuente-elegante);
+
+        color: var(--color-dorado);
+    }
+    & span{
+        font-family: var(--fuente-elegante);
+    }
+}
+.t-primary{
+    color: var(--primary);
+}
+.t-dorado{
+    color: var(--color-dorado);
+}
+@media(max-width:600px){
+  .card h1{font-size:1.6rem}
+  .card p{font-size:1rem}
+  #novios{font-size: 4rem;
+}
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+<title>Nuestra Boda - Invitación Oficial</title>
+
+    <meta property="og:title" content="¡Nos Casamos! 💍 - Invitación de Boda">
+    <meta property="og:description" content="Acompáñanos en este día tan especial. Haz clic para ver los detalles de nuestra boda.">
+    <meta property="og:image" content="https://cristianyperegrina.lovestoblog.com/img/icon.png">
+    <meta property="og:url" content="https://cristianyperegrina.lovestoblog.com">
+    <meta property="og:type" content="website">
+
+    <meta name="theme-color" content="#143557"> </head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="envelope" id="envelope">
+  <div class="flap" id="flap"></div>
+</div>
+<small class="text-secondary p-3">Toque la invitación</small>
+
+<div class="card" id="card">
+  <button class="close-btn" onclick="closeCard()"><span>&times;</button>
+  <div class="box p-3 d-flex flex-column justify-content-center" style="min-height: 100dvh;">
+    <h2 class="efecto-scroll">Nos casamos</h2>
+    <div class="p-4 d-flex justify-content-center">
+      <img src="img/cyp.jpeg" alt="novios" class="foto-novios efecto-scroll">
+    </div>
+    <h1 id="novios" class="efecto-scroll"></h1>
+  </div>
+  <div class="pasaje-biblico p-4">
+    <p class="efecto-scroll">"Y SI ALGUNO PREVALECIERE CONTRA UNO, DOS LE RESISTIRÁN; Y EL CORDÓN DE TRES DOBLECES NO SE ROMPRE PRONTO"</p>
+    <span class="efecto-scroll">Eclesiástes 4:12</span>
+  </div>
+  <div class="box3 p-4">
+      <p class="text-center t-primary fw-bold m-4 fs-4 efecto-scroll">Con la gracia de Dios y el amor que nos une, decidimos dar un paso juntos en 
+        esta nueva etapa, con la bendición de nuestros padres:
+      </p>
+      <div class="row">
+        <div class="col-12 col-sm-6 efecto-scroll bg-white">
+          <p class="text-center t-primary fw-bold fs-3">Moisés Reluz G.</p>
+          <p class="text-center t-primary fw-bold fs-3">Josefina Sejas L.</p>
+        </div>
+        <div class="col-12 col-sm-6 efecto-scroll bg-white">
+          <p class="text-center t-primary fw-bold fs-3">Nicacio Gutierrez C.</p>
+          <p class="text-center t-primary fw-bold fs-3">Juliana Choque Q.</p>
+        </div>
+        <div class="col-12 box-2 pasaje-biblico p-4">
+          <h2 class="text-center fw-bold h1 efecto-scroll">Te invitamos a compartir con nosotros</h2>
+        </div>
+         <div class="col-12">
+          <h4 class="fs1 text-center pt-4 efecto-scroll">18 de abril del 2026, a las 2 pm</h4>
+        </div>
+
+        <div class="col-12">
+                      <div class="calendar-container efecto-scroll">
+                        <div class="calendar-month-container">
+                        <div class="calendar-month-header">
+                          <h3 id="month-name">ABRIL 2026</h3>
+                        </div>
+                        <div class="calendar-grid">
+                          <div class="day-name">D</div><div class="day-name">L</div>
+                          <div class="day-name">M</div><div class="day-name">M</div>
+                          <div class="day-name">J</div><div class="day-name">V</div>
+                          <div class="day-name">S</div>
+                          
+                          <div class="empty"></div><div class="empty"></div><div class="empty"></div>
+                          <div>1</div><div>2</div><div>3</div><div>4</div>
+                          <div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div>
+                          <div>12</div><div>13</div><div>14</div>
+                          <div>15</div> <div>16</div><div>17</div><div class="special-day">18</div><div>19</div><div>20</div><div>21</div><div>22</div>
+                          <div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div>
+                          <div>30</div>
+                        </div>
+                      </div>
+
+                      <div class="countdown-container">
+                        <p>Faltan:</p>
+                        <div id="timer">
+                          <div class="time-block efecto-scroll"><span id="days">00</span><small>Días</small></div>
+                          <div class="time-block efecto-scroll"><span id="hours">00</span><small>Horas</small></div>
+                          <div class="time-block efecto-scroll"><span id="minutes">00</span><small>Min</small></div>
+                          <div class="time-block efecto-scroll"><span id="seconds">00</span><small>Seg</small></div>
+                        </div>
+                      </div>
+
+        </div>
+      </div>
+  </div>
+  
+  <div>
+
+
+  <div class="locations-section">
+  
+  <div class="location-card">
+    <div class="location-icon efecto-scroll">
+      <svg viewBox="0 0 512 512" width="50" height="50" fill="var(--color-dorado)">
+        <path d="M256 0c17.7 0 32 14.3 32 32V64.6c76.5 13.1 136 79.2 136 159.4c0 31.7-9.1 61.2-24.8 86.1l-14 22.3V448c0 17.7-14.3 32-32 32H158.8c-17.7 0-32-14.3-32-32V332.4l-14-22.3C97.1 285.2 88 255.7 88 224c0-80.2 59.5-146.3 136-159.4V32c0-17.7 14.3-32 32-32zM168 224c0 48.6 39.4 88 88 88s88-39.4 88-88s-39.4-88-88-88s-88 39.4-88 88zm88-48c-26.5 0-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48s-21.5-48-48-48zM128 480c0 17.7 14.3 32 32 32H352c17.7 0 32-14.3 32-32s-14.3-32-32-32H160c-17.7 0-32 14.3-32 32z"/>
+      </svg>
+    </div>
+    <div class="location-info">
+      <h3 class="location-title efecto-scroll">Ceremonia Religiosa</h3>
+      <p class="location-name efecto-scroll">iglesia "Centro de vida"</p>
+      <p class="location-address efecto-scroll">Calle Uruguay, entre Nataniel Aguirre y Esteban Arce. N°243</p>
+      <p class="location-time efecto-scroll">2 pm</p>
+    </div>
+    <a href="https://maps.app.goo.gl/wCM9iFup2NCe76AV7?g_st=aw" target="_blank" class="maps-btn  efecto-scroll">
+      Ver ubicación
+    </a>
+  </div>
+
+  <div class="location-card">
+    <div class="location-icon">
+      <svg viewBox="0 0 576 512" width="50" height="50" fill="var(--color-dorado)">
+        <path d="M16 32a16 16 0 1 0 0 32 16 16 0 1 0 0-32zM333 93L135 458c-10 18-2 41 16 50s41 2 50-16L399 127c10-18 2-41-16-50s-41-2-50 16zm12 51l32 56 32-56-32-56-32 56zm-48 0L261 28c-10-18-32-24-50-16s-24 32-16 50l32 56 32-56zM320 224a16 16 0 1 0 0-32 16 16 0 1 0 0 32zm0-64a16 16 0 1 0 0 32 16 16 0 1 0 0-32zm64-32a16 16 0 1 0 0 32 16 16 0 1 0 0-32zm192 16a16 16 0 1 0 0-32 16 16 0 1 0 0 32zm-64-32a16 16 0 1 0 0 32 16 16 0 1 0 0-32z"/>
+      </svg>
+    </div>
+    <div class="location-info">
+      <h3 class="location-title efecto-scroll">Recepción</h3>
+      <p class="location-name efecto-scroll">Salón de Eventos "Sole"</p>
+      <p class="location-address efecto-scroll">Av. siglo XX, esquina C. Pedro de Toledo</p>
+      <p class="location-time efecto-scroll">5 pm</p>
+    </div>
+    <a href=https://maps.app.goo.gl/RXhUAg1pF8LEN4187?g_st=aw" target="_blank" class="maps-btn efecto-scroll">
+      Ver ubicación
+    </a>
+  </div>
+
+</div>
+
+</div>
+  <p id="invitado"></p>
+</div>
+
+<div class="pasaje-biblico p-4 efecto-scroll">
+  <span class="t-dorado fs-1">TE ESPERAMOS !!!</span>
+</div>
+
+<script>
+
+const nombreNovios = "Cristian y Peregrina";
+const nombreInvitado = "Juan Pérez";
+
+document.getElementById("novios").innerText = nombreNovios;
+//document.getElementById("invitado").innerText = "Invitado: " + nombreInvitado;
+
+const envelope = document.getElementById("envelope");
+const flap = document.getElementById("flap");
+const card = document.getElementById("card");
+
+const audio = new Audio("indila-love_history.ogg");
+
+envelope.addEventListener("click", () => {
+  flap.style.transform = "rotateX(180deg)";
+  audio.volume = 0;
+  audio.play().catch(error => {
+    console.log("El navegador bloqueó el autoplay o el archivo no existe:", error);
+  });
+  fadeInAudio(audio);
+  setTimeout(()=>{
+    card.classList.add("active");
+  },400);
+});
+
+// Cerrar tarjeta
+function closeCard(){
+  card.classList.remove("active");
+  
+  setTimeout(()=>{
+    flap.style.transform = "rotateX(0deg)";
+    audio.pause().catch(error => {
+    console.log("El navegador bloqueó el autoplay o el archivo no existe:", error);
+  });
+  },400);
+}
+
+function fadeInAudio(track) {
+  let vol = 0;
+  const interval = 100;
+  const duration = 2000; 
+  const step = interval / duration;
+
+  const fadeIn = setInterval(() => {
+    if (vol < 1) {
+      vol += step;
+      track.volume = Math.min(vol, 1);
+    } else {
+      clearInterval(fadeIn);
+    }
+  }, interval);
+}
+</script>
+
+<script>
+  const eventDate = new Date("April 18, 2026 14:00:00").getTime();
+
+const updateCountdown = setInterval(() => {
+  const now = new Date().getTime();
+  const diff = eventDate - now;
+
+  // Cálculos de tiempo
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+  // Inyectar en el HTML
+  document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+  document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+  document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+  document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+
+  // Si la fecha ya pasó
+  if (diff < 0) {
+    clearInterval(updateCountdown);
+    document.querySelector(".countdown-container").innerHTML = "<h3>!Ya iniciado!</h3>";
+  }
+}, 1000);
+</script>
+
+<script>
+ document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("aparecer");
+      } else {
+        entry.target.classList.remove("aparecer");
+      }
+    });
+  }, {
+    threshold: 0.1, 
+    rootMargin: "0px 0px -50px 0px" 
+  });
+  const elementos = document.querySelectorAll(".efecto-scroll");
+  
+  elementos.forEach(el => observer.observe(el));
+});
+
+card.addEventListener("dblclick", () => {
+  if (card.classList.contains("active")) {
+    closeCard();
+  }
+});
+</script>
+<script>
+  window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeCard();
+  }
+});
+</script>
+
+</body>
+</html>
